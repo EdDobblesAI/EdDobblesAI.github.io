@@ -121,6 +121,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
     <div class="logo">WIN THE MENU</div>
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" data-p="scorecard" aria-selected="true">Scorecard</button>
+      <button class="tab" role="tab" data-p="gap" aria-selected="false">Competitive Gaps</button>
       <button class="tab" role="tab" data-p="qa" aria-selected="false" id="qatab" hidden>QA by Manufacturer</button>
     </div>
     <span class="who" id="who"></span><button class="out" id="out">Sign out</button>
@@ -129,9 +130,11 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
 </div>
 
 <script>
-const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "EPaxPF4y5nJHM/oJ", "c": "mxFoGWT2l8J796FU9oZG/6ggqniqomV41ycmriDQCNrdoqbM4wVnm2WfMleasGrpM0ldCrJJxC6s2bwqkzmeqE5Zk3gNh5ztH7q9NLnRuTInsYDs/yTvGzUyG5/uauThAEbVSigyeX1XafzChr/Fi8JhJESbbuceGcQ="}, {"i": "EEYNini+Cwdo7aBQ", "c": "YiD0Y4Jxe9FisYRf5M12wG4AZMe81U89U39AorfDLwNZQQwzZPIE1j3aMP2Ozy+986MYpoufhzyXDNAVLkYOGChllkeLUAWdjjbvK1SYm3W28IG7vy14VbT5uv94ae6M7A+9bTTwrTOKiGGXd56qU/j4vb7VCyULYpM="}], "v": "c0823031"};
-const PAGES={scorecard:['scorecard.enc','k'],qa:['qa.enc','q']};
-const TITLES={scorecard:'Win the Menu scorecard',qa:'Win the Menu manufacturer QA'};
+const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "nx4lJPJIfWJ9I/dU", "c": "IiJX5TADoRcxqLbgDhQH5C+DLESOlBS1Yhc5U9UggisiuJaanQ81nSFk+CWCKyElcbM6uF5gB4Crl3II22rULZvv5qK35LXgn0XQUF/VRsaRpv80jLIqInkzjfDP/St8xnq5to2FZN8YYH64LyVwPfMuoVX7aD2YRW0="}, {"i": "SypdY3ESLxIesUxs", "c": "NouibbGT6jwclcF5I58I6kTFex9UAnLn+6YiIV4pMt1d5eXa+oG5lWwOC85dmY8In3a1P3o75NU8wkeaXXEiuaZ/7VJl21U1Nmud+WqOYgfa/7eJQMcZtjnMOh8tTfkSfdlf7UZzKofs9GlXXyMnMOOkKGOyzkS53N8="}], "v": "ad71609a", "gv": "3a4d6e9432"};
+const PAGES={scorecard:['scorecard.enc','k'],gap:['gap.enc','k'],qa:['qa.enc','q']};
+window.WTM={bin:async p=>{const r=await fetch(p+'?v='+VAULT.gv,{cache:'force-cache'}); const u=new Uint8Array(await r.arrayBuffer());
+  const k=await crypto.subtle.importKey('raw',b64(SESS.k),'AES-GCM',false,['decrypt']); return crypto.subtle.decrypt({name:'AES-GCM',iv:u.slice(0,12)},k,u.slice(12));}};
+const TITLES={scorecard:'Win the Menu scorecard',gap:'Win the Menu competitive gaps',qa:'Win the Menu manufacturer QA'};
 const te=new TextEncoder(),td=new TextDecoder();
 const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
 async function unlock(email,pw){
