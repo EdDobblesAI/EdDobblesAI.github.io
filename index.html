@@ -4,17 +4,28 @@
 <title>Win the Menu</title>
 <meta name="description" content="Win the Menu reads the online drink menus of bars and restaurants across the US and Canada and records every alcohol brand they list, so drinks companies can see where they win and where they are missing.">
 <meta name="robots" content="index,follow">
+<link rel="canonical" href="https://winthemenu.ai/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2B1015">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Win the Menu"><meta property="og:url" content="https://winthemenu.ai/">
+<meta property="og:title" content="Win the Menu — Know who's on the menu">
+<meta property="og:description" content="Brand presence on 122,587 US and Canadian bar and restaurant drink menus: share of menus, competitors, states and the outlets that carry none of your brands.">
+<meta property="og:image" content="https://winthemenu.ai/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://winthemenu.ai/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--wine:#2B1015;--wine2:#3A1820;--brass:#E6B85C;--red:#B3263E;--ink:#1E1414;--muted:#857468;--line:#EADFD3;--cream:#FBF8F3;--bg:#fff}
+:root{--wine:#2B1015;--wine2:#3A1820;--brass:#E6B85C;--red:#B3263E;--ink:#1E1414;--muted:#6B5A50;--line:#EADFD3;--cream:#FBF8F3;--bg:#fff}
 *{box-sizing:border-box}html,body{margin:0;max-width:100%;overflow-x:hidden}
 body{font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 header.top{background:var(--wine);color:#fff}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
 .logo{font-weight:800;letter-spacing:.16em;font-size:13px;color:var(--brass)}
-.nav button{font:inherit;font-size:12px;font-weight:700;letter-spacing:.08em;background:none;border:1px solid rgba(230,184,92,.5);color:var(--brass);padding:8px 14px;border-radius:20px;cursor:pointer}
+.nav .acts{display:flex;gap:10px}.nav button,.nav a{font:inherit;font-size:13px;font-weight:700;letter-spacing:.06em;background:none;border:1px solid rgba(230,184,92,.5);color:var(--brass);padding:0 16px;min-height:44px;display:inline-flex;align-items:center;border-radius:22px;cursor:pointer;text-decoration:none}.nav a.pri{background:var(--brass);color:var(--wine);border-color:var(--brass)}
+.cta{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;padding:0 20px;border-radius:8px;background:var(--brass);color:var(--wine);font-weight:800;font-size:14px;text-decoration:none}
+.req{display:block;text-align:center;margin-top:14px;font-size:13px;color:var(--red);font-weight:700}
+:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
 .hero{padding:48px 0 64px;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
 .hero h1{font-size:46px;line-height:1.08;margin:0 0 18px;font-weight:800;letter-spacing:-1px}
 .hero h1 span{color:var(--brass);font-weight:500}
@@ -43,24 +54,25 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;font-size:12px;color
 /* app */
 #app{display:none}
 .bar{background:var(--wine);color:#fff}
-.bar .wrap{display:flex;align-items:center;gap:18px;padding:12px 20px;flex-wrap:wrap}
+.bar .wrap{display:flex;align-items:center;gap:14px;padding:10px 20px;flex-wrap:wrap}
 .tabs{display:flex;gap:6px;flex:1}
 .tab{font:inherit;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:none;border:0;color:#D9C7B8;padding:8px 12px;border-radius:6px;cursor:pointer}
 .tab[aria-selected=true]{background:rgba(230,184,92,.16);color:var(--brass)}
 .who{font-size:12px;color:#D9C7B8}
 .out{font:inherit;font-size:12px;background:none;border:1px solid rgba(230,184,92,.5);color:var(--brass);border-radius:16px;padding:6px 12px;cursor:pointer}
-iframe{display:block;width:100%;border:0;height:calc(100vh - 58px)}
-@media(max-width:860px){.hero{grid-template-columns:1fr;gap:28px}.hero h1{font-size:34px}.stats{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.uses{grid-template-columns:1fr}.wrap{padding:0 16px}}
+iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
+@media(max-width:860px){.hero{grid-template-columns:1fr;gap:24px;padding:24px 0 36px}.hero h1{font-size:32px}.hero p{font-size:14px}.who{display:none}.bar .logo{display:none}.stats{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.uses{grid-template-columns:1fr}.wrap{padding:0 16px}}
 </style></head><body>
 
 <div id="front">
 <header class="top"><div class="wrap">
-  <div class="nav"><div class="logo">WIN THE MENU</div><button onclick="document.getElementById('em').focus()">Sign in</button></div>
+  <div class="nav"><div class="logo">WIN THE MENU</div><div class="acts"><a class="pri" href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access">Request access</a><button onclick="document.getElementById('em').focus()">Sign in</button></div></div>
   <div class="hero">
     <div>
       <h1>Know who's on the menu. <span>Win the rest.</span></h1>
       <p>Win the Menu reads the online drink menus of bars and restaurants across the US and Canada and records every alcohol brand they list.</p>
       <p>For any drinks company or brand, it shows how many menus carry you, how you compare with competitors, where you are strong by state, and which bars serve alcohol but carry none of your brands.</p>
+      <a class="cta" href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access">Request access</a>
     </div>
     <div class="card">
       <h2>Sign in</h2>
@@ -70,6 +82,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - 58px)}
         <label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required>
         <button class="btn" id="go" type="submit">Sign in</button>
         <div class="err" id="err" role="alert"></div>
+        <a class="req" href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access">No login yet? Request access</a>
       </form>
     </div>
   </div>
@@ -100,7 +113,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - 58px)}
     </div>
   </section>
 </main>
-<footer><div class="wrap">Win the Menu · Menu presence, not sales volume or market share · Data: September 2026</div></footer>
+<footer><div class="wrap">Win the Menu · Menu presence, not sales volume or market share · Data: September 2026 · <a href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access" style="color:var(--red)">Contact us</a></div></footer>
 </div>
 
 <div id="app">
@@ -108,55 +121,64 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - 58px)}
     <div class="logo">WIN THE MENU</div>
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" data-p="scorecard" aria-selected="true">Scorecard</button>
-      <button class="tab" role="tab" data-p="qa" aria-selected="false">QA by Manufacturer</button>
+      <button class="tab" role="tab" data-p="qa" aria-selected="false" id="qatab" hidden>QA by Manufacturer</button>
     </div>
     <span class="who" id="who"></span><button class="out" id="out">Sign out</button>
   </div></div>
-  <iframe id="frame" title="Win the Menu"></iframe>
+  <iframe id="frame" title="Win the Menu scorecard"></iframe>
 </div>
 
 <script>
-const VAULT={"iter": 310000, "users": {"b44a72fc30638074d47981996bcf6b99a55234c36a98f86b635a82c17a152fb9": {"s": "gWLwc2azi+e514TUBLmH1g==", "i": "g/r3wHiW8TuwUz66", "c": "FPttPFR7GSgsMIWPpyE9gC0vU2YqYa5AVlPGq9+fk2BJ9x483rjYdlergjATSs0X"}, "7ebfd6b4e08b7a099753300fdc2ade1f793480c5ace75c1af46a859d5bdccf51": {"s": "NEV2k4hxcf9O7kTXch2Frw==", "i": "+mEnyflBJ2CduSy2", "c": "qSKLSgLxMhHEIL9+lo8xQOWz4E2nHZJ5Nhff9DfcVQpo3w/zFCD1PEmu6jz1i5rY"}}};
-const PAGES={scorecard:'scorecard.enc',qa:'qa.enc'};
+const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "TfiZ1K7SQgik7gb9", "c": "73YtfIx5gYrwpo0w2xmfWcn+/yMztH96wMYFRPH0vMKkjKxkI9bdYRg4SMQXHuecDCt4KEXkuxxHc+9M1szg1qz3pKzeoyo0TL5m7NHA7CSgVhRWp3PnKOBQGBnEkKuYDpEPfc/C9VTP70jAdLeicQrqyeSk/l5RMnc="}, {"i": "drxvbOufnK9t+B0X", "c": "kzYefCntdBrBklwgi3uVGtE65BWMa34/nL+rgIZurBdPNpzKQXfMCz4hbvVqGQo22L7C8pCPua7OfL7rch9Hf5LV6C8XbJu/q+545hC+cgEOzpzWbSE6mt9Lpn70mYeKNqXePkrasRTIbYlHP38Zo5JVFz4kTTpnhpE="}], "v": "53267282"};
+const PAGES={scorecard:['scorecard.enc','k'],qa:['qa.enc','q']};
+const TITLES={scorecard:'Win the Menu scorecard',qa:'Win the Menu manufacturer QA'};
 const te=new TextEncoder(),td=new TextDecoder();
 const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
-const u8b64=u=>btoa(String.fromCharCode(...u));
-async function sha(s){const h=await crypto.subtle.digest('SHA-256',te.encode(s));return [...new Uint8Array(h)].map(x=>x.toString(16).padStart(2,'0')).join('');}
-async function unwrap(email,pw){
-  const u=VAULT.users[await sha(email.trim().toLowerCase())]; if(!u) return null;
-  const base=await crypto.subtle.importKey('raw',te.encode(pw),'PBKDF2',false,['deriveKey']);
-  const kek=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(u.s),iterations:VAULT.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
-  try{return new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(u.i)},kek,b64(u.c)));}catch(e){return null;}
+async function unlock(email,pw){
+  const base=await crypto.subtle.importKey('raw',te.encode(email.trim().toLowerCase()+'\n'+pw),'PBKDF2',false,['deriveKey']);
+  const kek=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(VAULT.s),iterations:VAULT.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+  for(const u of VAULT.u){try{return JSON.parse(td.decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(u.i)},kek,b64(u.c))));}catch(e){}}
+  return null;
 }
-let KEY=null, urls={};
+let SESS=null, urls={};
 async function page(name){
   if(urls[name]) return urls[name];
-  const r=await fetch(PAGES[name],{cache:'no-store'}); const j=await r.json();
-  const k=await crypto.subtle.importKey('raw',KEY,'AES-GCM',false,['decrypt']);
+  const [file,slot]=PAGES[name]; if(!SESS[slot]) throw new Error('no access');
+  const r=await fetch(file+'?v='+VAULT.v,{cache:'no-store'}); const j=await r.json();
+  const k=await crypto.subtle.importKey('raw',b64(SESS[slot]),'AES-GCM',false,['decrypt']);
   const html=td.decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(j.i)},k,b64(j.c)));
   urls[name]=URL.createObjectURL(new Blob([html],{type:'text/html'})); return urls[name];
 }
+function sizeFrame(){document.documentElement.style.setProperty('--barh',document.querySelector('.bar').offsetHeight+'px');}
+addEventListener('resize',sizeFrame);
+function forget(){try{localStorage.removeItem('wtm');sessionStorage.removeItem('wtm');}catch(x){}}
 async function show(name){
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t.dataset.p===name));
-  try{document.getElementById('frame').src=await page(name);}
-  catch(e){forget(); location.reload();}
+  const fr=document.getElementById('frame'); fr.title=TITLES[name];
+  try{fr.src=await page(name);}catch(e){forget(); location.reload();}
 }
-function enter(email){
+function enter(){
   document.getElementById('front').style.display='none';document.getElementById('app').style.display='block';
-  document.getElementById('who').textContent=email; show('scorecard');
+  document.getElementById('who').textContent=SESS.e; document.getElementById('qatab').hidden=!SESS.q;
+  sizeFrame(); show('scorecard');
 }
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>show(t.dataset.p));
+document.querySelector('.tabs').addEventListener('keydown',e=>{
+  if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft') return;
+  const ts=[...document.querySelectorAll('.tab:not([hidden])')]; let i=ts.indexOf(document.activeElement); if(i<0) return;
+  i=(i+(e.key==='ArrowRight'?1:-1)+ts.length)%ts.length; ts[i].focus(); ts[i].click();
+});
 document.getElementById('lf').onsubmit=async e=>{
   e.preventDefault(); const go=document.getElementById('go'), err=document.getElementById('err');
   const em=document.getElementById('em').value, pw=document.getElementById('pw').value;
-  go.disabled=true; err.textContent='';
-  const k=await unwrap(em,pw); go.disabled=false;
-  if(!k){err.textContent='Email or password not recognised.';return;}
-  KEY=k; try{localStorage.setItem('wtm',JSON.stringify({k:u8b64(k),e:em.trim().toLowerCase()}));}catch(x){}
-  enter(em.trim().toLowerCase());
+  go.disabled=true; go.textContent='Signing in…'; err.textContent='';
+  const p=await unlock(em,pw); go.disabled=false; go.textContent='Sign in';
+  if(!p){err.textContent='Email or password not recognised.';return;}
+  SESS={k:p.k,q:p.q||null,e:em.trim().toLowerCase(),v:2};
+  try{localStorage.setItem('wtm',JSON.stringify(SESS));}catch(x){}
+  enter();
 };
-function forget(){try{localStorage.removeItem('wtm');sessionStorage.removeItem('wtm');}catch(x){}}
 document.getElementById('out').onclick=()=>{forget(); location.reload();};
-try{const s=JSON.parse(localStorage.getItem('wtm')||'null'); if(s){KEY=b64(s.k); enter(s.e);}}catch(x){}
+try{const s=JSON.parse(localStorage.getItem('wtm')||'null'); if(s&&s.v===2){SESS=s; enter();} else if(s){forget();}}catch(x){}
 </script>
 </body></html>
