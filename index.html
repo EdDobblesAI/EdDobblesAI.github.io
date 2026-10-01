@@ -64,7 +64,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - 58px)}
     </div>
     <div class="card">
       <h2>Sign in</h2>
-      <p class="sub">The scorecard is available to invited users.</p>
+      <p class="sub">The scorecard is available to invited users. You stay signed in on this device until you sign out.</p>
       <form id="lf" autocomplete="on">
         <label for="em">Email</label><input id="em" type="email" autocomplete="username" required>
         <label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required>
@@ -116,7 +116,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - 58px)}
 </div>
 
 <script>
-const VAULT={"iter": 310000, "users": {"b44a72fc30638074d47981996bcf6b99a55234c36a98f86b635a82c17a152fb9": {"s": "8koAy5NkIyfHBJB4CE91Vg==", "i": "g3qM1ceqohKLu7HL", "c": "+DKw/iffy9KXsPmUbA1xv65qDGQL4Mboecbs89Eszv7x4fjXzXyyaxtogdygZaYp"}, "7ebfd6b4e08b7a099753300fdc2ade1f793480c5ace75c1af46a859d5bdccf51": {"s": "pn89un5/9J4CKCgy4hfJLA==", "i": "epZfRaL3ntnEMVyB", "c": "XHlTWCN7NAndkTR9CNVpi5GveQvfzn/CLIoWaeHdZJm9R+yQHMMrIfaNpuoZBZta"}}};
+const VAULT={"iter": 310000, "users": {"b44a72fc30638074d47981996bcf6b99a55234c36a98f86b635a82c17a152fb9": {"s": "gWLwc2azi+e514TUBLmH1g==", "i": "g/r3wHiW8TuwUz66", "c": "FPttPFR7GSgsMIWPpyE9gC0vU2YqYa5AVlPGq9+fk2BJ9x483rjYdlergjATSs0X"}, "7ebfd6b4e08b7a099753300fdc2ade1f793480c5ace75c1af46a859d5bdccf51": {"s": "NEV2k4hxcf9O7kTXch2Frw==", "i": "+mEnyflBJ2CduSy2", "c": "qSKLSgLxMhHEIL9+lo8xQOWz4E2nHZJ5Nhff9DfcVQpo3w/zFCD1PEmu6jz1i5rY"}}};
 const PAGES={scorecard:'scorecard.enc',qa:'qa.enc'};
 const te=new TextEncoder(),td=new TextDecoder();
 const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
@@ -138,7 +138,8 @@ async function page(name){
 }
 async function show(name){
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t.dataset.p===name));
-  document.getElementById('frame').src=await page(name);
+  try{document.getElementById('frame').src=await page(name);}
+  catch(e){forget(); location.reload();}
 }
 function enter(email){
   document.getElementById('front').style.display='none';document.getElementById('app').style.display='block';
@@ -151,10 +152,11 @@ document.getElementById('lf').onsubmit=async e=>{
   go.disabled=true; err.textContent='';
   const k=await unwrap(em,pw); go.disabled=false;
   if(!k){err.textContent='Email or password not recognised.';return;}
-  KEY=k; try{sessionStorage.setItem('wtm',JSON.stringify({k:u8b64(k),e:em.trim().toLowerCase()}));}catch(x){}
+  KEY=k; try{localStorage.setItem('wtm',JSON.stringify({k:u8b64(k),e:em.trim().toLowerCase()}));}catch(x){}
   enter(em.trim().toLowerCase());
 };
-document.getElementById('out').onclick=()=>{try{sessionStorage.removeItem('wtm');}catch(x){} location.reload();};
-try{const s=JSON.parse(sessionStorage.getItem('wtm')||'null'); if(s){KEY=b64(s.k); enter(s.e);}}catch(x){}
+function forget(){try{localStorage.removeItem('wtm');sessionStorage.removeItem('wtm');}catch(x){}}
+document.getElementById('out').onclick=()=>{forget(); location.reload();};
+try{const s=JSON.parse(localStorage.getItem('wtm')||'null'); if(s){KEY=b64(s.k); enter(s.e);}}catch(x){}
 </script>
 </body></html>
