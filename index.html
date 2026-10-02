@@ -113,7 +113,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
     </div>
   </section>
 </main>
-<footer><div class="wrap">Win the Menu · Menu presence, not sales volume or market share · Data: September 2026 · <a href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access" style="color:var(--red)">Contact us</a></div></footer>
+<footer><div class="wrap">Win the Menu · Menu presence, not sales volume or market share · Data: September 2026 · <a href="/accuracy" style="color:var(--red)">How accurate is our data</a> · <a href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access" style="color:var(--red)">Contact us</a></div></footer>
 </div>
 
 <div id="app">
@@ -130,7 +130,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
 </div>
 
 <script>
-const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "b3GeRmo8dF3oEoVZ", "c": "//vGbCalp2XFphDmfBhWKiWp7J7mfeyMXByYjBxueydCKHfA/zRDU27ZrJH8DLG+5ZaU6YSy/djUaY2T13RFrIVvab3MFxVrwQLCwWV76hUCYpftW0diyeEuK0/QohoJaFm6docJrwo/REjgPCmEs+FvB3EzoDh2ZmA="}, {"i": "Gs2K4kdk/OK3zuQI", "c": "dvUpENnTvU//GIODIUfuDQnzPCIYxtC5yAOduINl4XsCkhnFx0rI5mEEcu3K9Nd9RURRpJOm23yO5VHWVxWb2EHH4g6ibEvBl1u2LPrs79pFemp9kskDaSZ9Z8IemsRZo1JY50vDy3/SgDUs6Ny3STx0FgvMRTjmRL4="}], "v": "2aabbd8b", "gv": "826f29299c"};
+const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "KeyqLSyDk+UQc7Ki", "c": "L/lxbEhIzjwMny21Hr/2wBF/5jXwU88oUImCkau5yukCbN23Lx5+wqIhCRdqgi3CqWeYV3KoSL46wi79KW+Bcyuf+7RYNd+mQ6i7Y4hHXq/Mm+dsJWG8QS3DBAqzpluVVy0Y+AEr8USC3QJ4oCr0visKDytB29MivVo="}, {"i": "BBpJQvZLyvpkF3dE", "c": "NRL5i3GbRHmu7623yUED0Gu7cJf5n8+iaP+MMtZAagPoWRXrcBMkLVrH6DgbIo/JfU6Q0+mt879rQIf2FEst16ryvremGWr2sL4+2PLwoVSH1e4mEiAr8sU7mySSW36gCgCNFomUXfbl0bGeNnSCThqiCSI5qb3vt7Y="}], "v": "8cb3915d", "gv": "826f29299c"};
 const PAGES={scorecard:['scorecard.enc','k'],gap:['gap.enc','k'],qa:['qa.enc','q']};
 window.WTM={bin:async p=>{const r=await fetch(p+'?v='+VAULT.gv,{cache:'force-cache'}); const u=new Uint8Array(await r.arrayBuffer());
   const k=await crypto.subtle.importKey('raw',b64(SESS.k),'AES-GCM',false,['decrypt']); return crypto.subtle.decrypt({name:'AES-GCM',iv:u.slice(0,12)},k,u.slice(12));}};
