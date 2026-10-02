@@ -29,7 +29,9 @@ header.top{background:var(--wine);color:#fff}
 .hero{padding:48px 0 64px;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
 .hero h1{font-size:46px;line-height:1.08;margin:0 0 18px;font-weight:800;letter-spacing:-1px}
 .hero h1 span{color:var(--brass);font-weight:500}
-.hero p{color:#D9C7B8;font-size:15px;line-height:1.75;margin:0 0 14px;max-width:560px}
+.hero p{color:#D9C7B8;font-size:15px;line-height:1.75;margin:0 0 18px;max-width:560px}
+.glasses{display:flex;gap:22px;align-items:flex-end;margin-top:34px;color:var(--brass);opacity:.85}
+.glasses .ico{width:44px;height:55px}
 .card{background:#fff;color:var(--ink);border-radius:12px;padding:26px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
 .card h2{margin:0 0 6px;font-size:18px}
 .card .sub{font-size:12.5px;color:var(--muted);margin:0 0 18px;line-height:1.6}
@@ -45,8 +47,8 @@ input:focus{outline:2px solid var(--brass);border-color:transparent}
 section.how{padding:40px 0 56px}
 section.how h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 20px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.step{border-top:3px solid var(--brass);padding-top:14px}
-.step b{display:block;font-size:16px;margin-bottom:8px}
+.step{border-top:3px solid var(--brass);padding-top:16px;color:var(--wine)}.step .ico{display:block;margin-bottom:10px}
+.step b{display:block;font-size:17px;margin-bottom:6px;color:var(--ink)}
 .step p{margin:0;font-size:14px;line-height:1.7;color:#4a3a36}
 .uses{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 32px;margin-top:8px}
 .uses div{font-size:14px;line-height:1.6;color:#4a3a36;padding-left:16px;border-left:2px solid var(--line)}
@@ -70,9 +72,9 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
   <div class="hero">
     <div>
       <h1>Know who's on the menu. <span>Win the rest.</span></h1>
-      <p>Win the Menu reads the online drink menus of bars and restaurants across the US and Canada and records every alcohol brand they list.</p>
-      <p>For any drinks company or brand, it shows how many menus carry you, how you compare with competitors, where you are strong by state, and which bars serve alcohol but carry none of your brands.</p>
+      <p>We read the online drink menus of 122,587 bars and restaurants across the US and Canada and record every brand they list. For any drinks company or brand: how many menus carry you, who you're up against, where you're strong, and every bar that pours but doesn't pour you.</p>
       <a class="cta" href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access">Request access</a>
+      <div class="glasses" aria-hidden="true"><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h36c0 14-8 24-18 24S6 24 6 10z"/><path d="M24 34v18M14 52h20"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h30l-3 42H12z"/><path d="M13 28h22" stroke-opacity=".5"/><rect x="18" y="20" width="9" height="9" rx="2" transform="rotate(12 22 24)" stroke-opacity=".7"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h24v50H12z"/><path d="M14 20h20" stroke-opacity=".5"/><path d="M30 2l6 30" stroke-opacity=".8"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 4h12v12c0 5 8 8 8 18v24H10V34c0-10 8-13 8-18z"/><path d="M14 38h20" stroke-opacity=".5"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h30c0 20-6 32-15 32S9 26 9 6z"/><path d="M24 38v16M14 54h20"/></svg></div>
     </div>
     <div class="card">
       <h2>Sign in</h2>
@@ -98,9 +100,9 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
   <section class="how">
     <h3>How it works</h3>
     <div class="steps">
-      <div class="step"><b>We collect the menus</b><p>Every month we collect the drink menus that bars and restaurants publish on their own websites.</p></div>
-      <div class="step"><b>We read every brand</b><p>Each listing is read and matched to a brand and its current owner. Spelling variants are combined, and brands we can't confirm are left out.</p></div>
-      <div class="step"><b>We check the work</b><p>Results are checked against independent re-reads of thousands of menus and against menus read by people, brand by brand.</p></div>
+      <div class="step"><svg class="ico" viewBox="0 0 48 60" width="34" height="42" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 4h12v12c0 5 8 8 8 18v24H10V34c0-10 8-13 8-18z"/><path d="M14 38h20" stroke-opacity=".5"/></svg><b>Collect</b><p>Every month, the drink menus bars and restaurants publish on their own sites.</p></div>
+      <div class="step"><svg class="ico" viewBox="0 0 48 60" width="34" height="42" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h30l-3 42H12z"/><path d="M13 28h22" stroke-opacity=".5"/><rect x="18" y="20" width="9" height="9" rx="2" transform="rotate(12 22 24)" stroke-opacity=".7"/></svg><b>Read</b><p>Every listing matched to a brand and its current owner; spellings combined, doubtful ones left out.</p></div>
+      <div class="step"><svg class="ico" viewBox="0 0 48 60" width="34" height="42" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h36c0 14-8 24-18 24S6 24 6 10z"/><path d="M24 34v18M14 52h20"/></svg><b>Check</b><p>Independent re-reads of thousands of menus, plus menus read by people, brand by brand.</p></div>
     </div>
   </section>
   <section class="how" style="padding-top:0">
@@ -130,7 +132,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
 </div>
 
 <script>
-const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "bcLTLwmEZ8j+fsqq", "c": "Uf/j5tteqdTHy7zI5JF7Eo0cRKiU/JO15sK2RnfGjQDcVfU8CEEvR5K9PcFGtz5NBq2iGy4QBqxyAE95k4fEWsyOmSMxEwVdcHbWz/P0uLdmJsVhe3VOSLo1dbfaOVe2f7haPKHoCBY7ZfHzj44Nv7slpzn/L1/HACM="}, {"i": "l6Itp2D8lUAHbehU", "c": "GTeRWb06hnrKEcaiPgbk2NnOmV7wkUIarVmOZOhTsZgXPfBDk2Y9HXcZr9zW/wQbsyWWIOyortpwQm5BGI5zGQTF/TJHSFHCr97La3zXH5i4mw9dcafJEge5Dc58jeTBZAc+C0iWxd5C8fmSXeRdy46hQ7weiaqh2Jo="}], "v": "3b9bea68", "gv": "59c1ea4d9c"};
+const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "HhmvzYlRW99aMSSI", "c": "4ew+p1YVpzN8GKIGmUeBWnznHxhEm/wm/ug27CZTk16VjkDV4IhrHXOWZrtCUxfUZzjgI1+YHQPvO2h0N3TpQQkWM+wSrBBW2JlqvOu34zW9hobENiaQobKjV+3AuXjzyfuLZ/YI2p5YPFox6v5At5hHyqY4c8e7ee4="}, {"i": "pA89cocBVTp0vJ0I", "c": "zwo+lrbKcLySNInad+wbkZJF/XEE680J6D3eRbddzLuIsPzozHvBFbFwEiaxV3yyOEIyWMCn82BmP+sVsbKtqy2FEpXjsfBDIu+T9yahs/m9lpG8EzAhJkXVZ+CT/s2n4Suzz+eHWMP6YRJNOAbTQ2FIPrEPWgb0ans="}], "v": "26b8fb6e", "gv": "59c1ea4d9c"};
 const PAGES={scorecard:['scorecard.enc','k'],gap:['gap.enc','k'],qa:['qa.enc','q']};
 window.WTM={get internal(){return !!(SESS&&SESS.q);},bin:async p=>{const r=await fetch(p+'?v='+VAULT.gv,{cache:'force-cache'}); const u=new Uint8Array(await r.arrayBuffer());
   const k=await crypto.subtle.importKey('raw',b64(SESS.k),'AES-GCM',false,['decrypt']); return crypto.subtle.decrypt({name:'AES-GCM',iv:u.slice(0,12)},k,u.slice(12));}};
