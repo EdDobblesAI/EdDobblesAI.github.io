@@ -130,9 +130,9 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
 </div>
 
 <script>
-const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "5klmunW/IDhD0MxC", "c": "N2rNg4VLuO8bSouTh7y2n6bkgE+oFQgCoR7nwA/vYiW/vDUYTBlN3DSm29fxCn0HOLnX0ZMVvK3Or3w8Y+6IMIz7EDy+nJHtRaMRkQH6nVrabzuKJmsosIbwJNIfmTbzeLTiku9kaZ7VfI5zEzkN4uy863nncD81oHc="}, {"i": "ERqE1H9pbtOIEHCS", "c": "m5Itj+/+BwdpGiu1SC91HcRgSM/KZ1vhmIMhHgiWKtVUnNVkHPdHiAkYyO+EbItv9hw08V5j7Xu14N6bQGI69uuI/vV/QtenouiFYhdekA3Z0uLuXLC3O+uFZtP6N72+feATjS+zFo2k/2pBFhh2+GaGguPa5ko2CUc="}], "v": "46bb7a08", "gv": "59c1ea4d9c"};
+const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "SXOUSNw/DLdO7JB9", "c": "JLNFNCQzDucTD2FXgoRrK+8kaBz7ADOqiHpmpBvqvMKz9UarFmo6WYY3fBGfPpQm7Ju1krqO9+eia7bpxmVcLFtjYczbyf1vuxh82n1yniwVdtTY77m2EFhmztOJnt5pvLtZRvJq797hrBRg7Dk2dHmrsmy3rGvaqMA="}, {"i": "OVZEXxKKHlRWr+LX", "c": "mUSGrsUxuZg2Fz7gKKS832fMmYQmZ7b4lP9k+bid4GJueVqkZwFyvs6EP9arxroXBsezzvQTwhbDUFWzSaXifu8yaJWMO0M8aNB5evcLgFF/a9jLgVNd3qxlqNtsFV3rNrHj+1ekjm7K4QO8c+ZpPrKhL8EfKHU7Aj0="}], "v": "e22539b1", "gv": "59c1ea4d9c"};
 const PAGES={scorecard:['scorecard.enc','k'],gap:['gap.enc','k'],qa:['qa.enc','q']};
-window.WTM={bin:async p=>{const r=await fetch(p+'?v='+VAULT.gv,{cache:'force-cache'}); const u=new Uint8Array(await r.arrayBuffer());
+window.WTM={get internal(){return !!(SESS&&SESS.q);},bin:async p=>{const r=await fetch(p+'?v='+VAULT.gv,{cache:'force-cache'}); const u=new Uint8Array(await r.arrayBuffer());
   const k=await crypto.subtle.importKey('raw',b64(SESS.k),'AES-GCM',false,['decrypt']); return crypto.subtle.decrypt({name:'AES-GCM',iv:u.slice(0,12)},k,u.slice(12));}};
 const TITLES={scorecard:'Win the Menu scorecard',gap:'Win the Menu competitive gaps',qa:'Win the Menu manufacturer QA'};
 const te=new TextEncoder(),td=new TextDecoder();
