@@ -21,7 +21,7 @@ body{font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 header.top{background:var(--wine);color:#fff}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
-.logo{font-weight:800;letter-spacing:.16em;font-size:13px;color:var(--brass)}
+.logo{font-weight:800;letter-spacing:.16em;font-size:13px;color:var(--brass);white-space:nowrap}
 .nav .acts{display:flex;gap:10px}.nav button,.nav a{font:inherit;font-size:13px;font-weight:700;letter-spacing:.06em;background:none;border:1px solid rgba(230,184,92,.5);color:var(--brass);padding:0 16px;min-height:44px;display:inline-flex;align-items:center;border-radius:22px;cursor:pointer;text-decoration:none}.nav a.pri{background:var(--brass);color:var(--wine);border-color:var(--brass)}
 .cta{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;padding:0 20px;border-radius:8px;background:var(--brass);color:var(--wine);font-weight:800;font-size:14px;text-decoration:none}
 .req{display:block;text-align:center;margin-top:14px;font-size:13px;color:var(--red);font-weight:700}
@@ -54,14 +54,14 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;font-size:12px;color
 /* app */
 #app{display:none}
 .bar{background:var(--wine);color:#fff}
-.bar .wrap{display:flex;align-items:center;gap:14px;padding:10px 20px;flex-wrap:wrap}
-.tabs{display:flex;gap:6px;flex:1}
-.tab{font:inherit;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:none;border:0;color:#D9C7B8;padding:8px 12px;border-radius:6px;cursor:pointer}
+.bar .wrap{display:flex;align-items:center;gap:14px;padding:10px 20px}
+.tabs{display:flex;gap:6px;flex:1;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.tabs::-webkit-scrollbar{display:none}
+.tab{font:inherit;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:none;border:0;color:#D9C7B8;padding:10px 12px;border-radius:6px;cursor:pointer;white-space:nowrap;min-height:44px}
 .tab[aria-selected=true]{background:rgba(230,184,92,.16);color:var(--brass)}
 .who{font-size:12px;color:#D9C7B8}
-.out{font:inherit;font-size:12px;background:none;border:1px solid rgba(230,184,92,.5);color:var(--brass);border-radius:16px;padding:6px 12px;cursor:pointer}
+.out{font:inherit;font-size:12px;background:none;border:1px solid rgba(230,184,92,.5);color:var(--brass);border-radius:22px;padding:0 14px;min-height:40px;cursor:pointer;white-space:nowrap}
 iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
-@media(max-width:860px){.hero{grid-template-columns:1fr;gap:24px;padding:24px 0 36px}.hero h1{font-size:32px}.hero p{font-size:14px}.who{display:none}.bar .logo{display:none}.stats{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.uses{grid-template-columns:1fr}.wrap{padding:0 16px}}
+@media(max-width:860px){.hero{grid-template-columns:1fr;gap:24px;padding:24px 0 36px}.hero h1{font-size:32px}.hero p{font-size:14px}.who{display:none}.bar .wrap{flex-wrap:wrap;gap:6px 10px;padding:8px 12px}.bar .logo{font-size:12px;order:0}.bar .out{order:1;margin-left:auto}.bar .tabs{order:2;flex-basis:100%;margin:0 -12px;padding:0 12px;width:calc(100% + 24px)}.nav .acts a.pri{display:none}.stats{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.uses{grid-template-columns:1fr}.wrap{padding:0 16px}}
 </style></head><body>
 
 <div id="front">
@@ -92,7 +92,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
   <div class="stats">
     <div class="stat"><div class="v">122,587</div><div class="l">Bars and restaurants with an alcohol menu online, September 2026</div></div>
     <div class="stat"><div class="v">106,468</div><div class="l">Of those, menus that name at least one brand</div></div>
-    <div class="stat"><div class="v">1,526</div><div class="l">Brands tracked, each on 100 or more menus</div></div>
+    <div class="stat"><div class="v">1,515</div><div class="l">Brands tracked, each on 100 or more menus</div></div>
     <div class="stat"><div class="v">200</div><div class="l">Drinks companies you can look up</div></div>
   </div>
   <section class="how">
@@ -130,7 +130,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
 </div>
 
 <script>
-const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "IL7w02FMY6J95RDK", "c": "pM2hCxgIDAFVKkeGrFKgxjtQTbWxmiqthWNuhSWf27QNaGV2fjOg45/vEjOZQEA2KPGHXwQ0I0/KuC8rNwhGT03/zN4NDVlPBWX2ssg9ZhkSsuINnAvXlYg3OsQ/vbppj2ioqBwcuVmZtfeAhNcLMbqrArq8RV2ajN8="}, {"i": "ymz+F5pkS4rYNjpF", "c": "vjlR5Gowyluc/enERnr+kzsF3yKVwTk8niRnRaotbarqm1uZwjiDraTA541M9IesAaIkILVqVkfRsvKAhxtAJnU7cjVreaUT2cNBxLkJjUESEDr5/YNDCSOjMEvRxsVflX0IOIq0ROpbBuynoqJLotrqfVCT/DXSxjw="}], "v": "a5a27296", "gv": "59c1ea4d9c"};
+const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "5klmunW/IDhD0MxC", "c": "N2rNg4VLuO8bSouTh7y2n6bkgE+oFQgCoR7nwA/vYiW/vDUYTBlN3DSm29fxCn0HOLnX0ZMVvK3Or3w8Y+6IMIz7EDy+nJHtRaMRkQH6nVrabzuKJmsosIbwJNIfmTbzeLTiku9kaZ7VfI5zEzkN4uy863nncD81oHc="}, {"i": "ERqE1H9pbtOIEHCS", "c": "m5Itj+/+BwdpGiu1SC91HcRgSM/KZ1vhmIMhHgiWKtVUnNVkHPdHiAkYyO+EbItv9hw08V5j7Xu14N6bQGI69uuI/vV/QtenouiFYhdekA3Z0uLuXLC3O+uFZtP6N72+feATjS+zFo2k/2pBFhh2+GaGguPa5ko2CUc="}], "v": "46bb7a08", "gv": "59c1ea4d9c"};
 const PAGES={scorecard:['scorecard.enc','k'],gap:['gap.enc','k'],qa:['qa.enc','q']};
 window.WTM={bin:async p=>{const r=await fetch(p+'?v='+VAULT.gv,{cache:'force-cache'}); const u=new Uint8Array(await r.arrayBuffer());
   const k=await crypto.subtle.importKey('raw',b64(SESS.k),'AES-GCM',false,['decrypt']); return crypto.subtle.decrypt({name:'AES-GCM',iv:u.slice(0,12)},k,u.slice(12));}};
