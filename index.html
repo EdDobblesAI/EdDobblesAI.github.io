@@ -132,7 +132,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
 </div>
 
 <script>
-const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "Q694sQacJ4Kpj5s+", "c": "/RB6uVXyz11szeQGePvyzD25cre/sYFr/ZwMMpUwdqbLZEa1CiwgS+QRMBea4dDZjwfEFNxv7Tyifg6N0QofvOjxDVcQRt1Fd+wKfnhMjcwyYBilDJQIFlOSnMG2BoHqvACi//X8GXWcyq3g+MzzitqzNB/safzs/sU="}, {"i": "J+pcPsZYBfyvnQ2A", "c": "M8A33Pdfk5oy7OvWMzfWSeEjtzbSq/opdQj/ITfB16Dtift/DTpmrgJWfxeBppDH7b5ftw2Cp15wX96oXXMas25eweLZ7Y+rRTgdpnljz0yoNkMS1ekHvcJmmTPQCRwQ1Q+nxJKJot7XN9kRNdGCqEx68J9AN36RajQ="}], "v": "74439838", "gv": "59c1ea4d9c"};
+const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "xUB9RJN9Z9wRMe6l", "c": "3d872IZjWriCGPkQ45zSBDVKodI6ph3j4KoSkmiHz3Y3i6udP5JqMumNMw28THuPI30f66V9gIm6TnzTJjN8/jG37NdofvhAInE/wu1/zqOeE1i67Qf5R1JIRBjXExADMgm1k5naX03LsJ1EL8TgTnKQw3B+dyDu1Oc="}, {"i": "jK/QcuMAdSB/nxdf", "c": "9iAat2TPk8ylt6gsiEFnQGCenxH4c0rAX+Rfoc81Hieae2aaY0NKHUYD/l+XEDOdDpJwcwRxoLUeTTgrLQNkjyGvNVI62FmMbJWqbP7qqWGv6Y4c4GKmM50C7fAbCOYACLMfDERX42CLzwKWOl83xgxcx4L7B6Dyr50="}], "v": "fe0ec743", "gv": "59c1ea4d9c"};
 const PAGES={scorecard:['scorecard.enc','k'],gap:['gap.enc','k'],qa:['qa.enc','q']};
 window.WTM={get internal(){return !!(SESS&&SESS.q);},bin:async p=>{const r=await fetch(p+'?v='+VAULT.gv,{cache:'force-cache'}); const u=new Uint8Array(await r.arrayBuffer());
   const k=await crypto.subtle.importKey('raw',b64(SESS.k),'AES-GCM',false,['decrypt']); return crypto.subtle.decrypt({name:'AES-GCM',iv:u.slice(0,12)},k,u.slice(12));}};
