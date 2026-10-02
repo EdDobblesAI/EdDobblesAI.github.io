@@ -58,7 +58,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;font-size:12px;color
 .bar{background:var(--wine);color:#fff}
 .bar .wrap{display:flex;align-items:center;gap:14px;padding:10px 20px}
 .tabs{display:flex;gap:6px;flex:1;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.tabs::-webkit-scrollbar{display:none}
-.tab{font:inherit;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:none;border:0;color:#D9C7B8;padding:10px 12px;border-radius:6px;cursor:pointer;white-space:nowrap;min-height:44px}
+.tab{font:inherit;font-size:14px;font-weight:700;background:none;border:0;color:#D9C7B8;padding:10px 12px;border-radius:6px;cursor:pointer;white-space:nowrap;min-height:44px}
 .tab[aria-selected=true]{background:rgba(230,184,92,.16);color:var(--brass)}
 .who{font-size:12px;color:#D9C7B8}
 .out{font:inherit;font-size:12px;background:none;border:1px solid rgba(230,184,92,.5);color:var(--brass);border-radius:22px;padding:0 14px;min-height:40px;cursor:pointer;white-space:nowrap}
@@ -132,7 +132,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
 </div>
 
 <script>
-const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "HhmvzYlRW99aMSSI", "c": "4ew+p1YVpzN8GKIGmUeBWnznHxhEm/wm/ug27CZTk16VjkDV4IhrHXOWZrtCUxfUZzjgI1+YHQPvO2h0N3TpQQkWM+wSrBBW2JlqvOu34zW9hobENiaQobKjV+3AuXjzyfuLZ/YI2p5YPFox6v5At5hHyqY4c8e7ee4="}, {"i": "pA89cocBVTp0vJ0I", "c": "zwo+lrbKcLySNInad+wbkZJF/XEE680J6D3eRbddzLuIsPzozHvBFbFwEiaxV3yyOEIyWMCn82BmP+sVsbKtqy2FEpXjsfBDIu+T9yahs/m9lpG8EzAhJkXVZ+CT/s2n4Suzz+eHWMP6YRJNOAbTQ2FIPrEPWgb0ans="}], "v": "26b8fb6e", "gv": "59c1ea4d9c"};
+const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "5pHS6Uju38FS6h7R", "c": "viqsRSaACC+eHtrhvPjOEcTxVsdNmXi75cn1hkmZqmNGedNvw55MgX+Ep1NokzwL80iVzpWvjwgj/SWZzpR1kQeU+DS6EvxwmlsnsDj0e7FV2vGp39Uwp4ZdtBmvQY0WYvIn324GajyU7cdcWSHvAlLmQ2pO4RGK13w="}, {"i": "IhTDxq+2yn6B6RFr", "c": "UFIjZoB1tQTXhS23UqFHTa4hKqUY/sXqptBgPjaAQwBDglZN0I/8jpqPjPQMZxJp3mLqzUVY3BT8YAOGZuAoquwEMWbo8Yj6+tcs0iqnwYusNUKWljD0417XPpmPoQQ0BvoUKbR99/zLf55kYelOp+xL+iyzPJZRUL0="}], "v": "ba6a85e0", "gv": "59c1ea4d9c"};
 const PAGES={scorecard:['scorecard.enc','k'],gap:['gap.enc','k'],qa:['qa.enc','q']};
 window.WTM={get internal(){return !!(SESS&&SESS.q);},bin:async p=>{const r=await fetch(p+'?v='+VAULT.gv,{cache:'force-cache'}); const u=new Uint8Array(await r.arrayBuffer());
   const k=await crypto.subtle.importKey('raw',b64(SESS.k),'AES-GCM',false,['decrypt']); return crypto.subtle.decrypt({name:'AES-GCM',iv:u.slice(0,12)},k,u.slice(12));}};
