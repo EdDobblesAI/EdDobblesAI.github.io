@@ -1,189 +1,130 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Win the Menu</title>
-<meta name="description" content="Win the Menu reads the online drink menus of bars and restaurants across the US and Canada and records every alcohol brand they list, so drinks companies can see where they win and where they are missing.">
-<meta name="robots" content="index,follow">
+<title>Win the Menu — On-premise menu data for drinks brands</title>
+<meta name="description" content="See which US and Canadian bar and restaurant menus carry your brand, which carry your competitors instead, and which accounts to go after next. Read monthly from 122,587 drink menus.">
 <link rel="canonical" href="https://winthemenu.ai/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#2B1015">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Win the Menu"><meta property="og:url" content="https://winthemenu.ai/">
-<meta property="og:title" content="Win the Menu — Know who's on the menu">
-<meta property="og:description" content="Brand presence on 122,587 US and Canadian bar and restaurant drink menus: share of menus, competitors, states and the outlets that carry none of your brands.">
+<meta property="og:title" content="Win the Menu — Find the menus you're missing">
+<meta property="og:description" content="Where your brands are listed on bar and restaurant menus, where your competitors are, and which accounts to go after next.">
 <meta property="og:image" content="https://winthemenu.ai/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://winthemenu.ai/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--wine:#2B1015;--wine2:#3A1820;--brass:#E6B85C;--red:#B3263E;--ink:#1E1414;--muted:#6B5A50;--line:#EADFD3;--cream:#FBF8F3;--bg:#fff}
-*{box-sizing:border-box}html,body{margin:0;max-width:100%;overflow-x:hidden}
-body{font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-header.top{background:var(--wine);color:#fff}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
-.logo{font-weight:800;letter-spacing:.16em;font-size:13px;color:var(--brass);white-space:nowrap}
-.nav .acts{display:flex;gap:10px}.nav button,.nav a{font:inherit;font-size:13px;font-weight:700;letter-spacing:.06em;background:none;border:1px solid rgba(230,184,92,.5);color:var(--brass);padding:0 16px;min-height:44px;display:inline-flex;align-items:center;border-radius:22px;cursor:pointer;text-decoration:none}.nav a.pri{background:var(--brass);color:var(--wine);border-color:var(--brass)}
-.cta{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;padding:0 20px;border-radius:8px;background:var(--brass);color:var(--wine);font-weight:800;font-size:14px;text-decoration:none}
-.req{display:block;text-align:center;margin-top:14px;font-size:13px;color:var(--red);font-weight:700}
-:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
-.hero{padding:48px 0 64px;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
-.hero h1{font-size:46px;line-height:1.08;margin:0 0 18px;font-weight:800;letter-spacing:-1px}
-.hero h1 span{color:var(--brass);font-weight:500}
-.hero p{color:#D9C7B8;font-size:15px;line-height:1.75;margin:0 0 18px;max-width:560px}
-.glasses{display:flex;gap:22px;align-items:flex-end;margin-top:34px;color:var(--brass);opacity:.85}
-.glasses .ico{width:44px;height:55px}
-.card{background:#fff;color:var(--ink);border-radius:12px;padding:26px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-.card h2{margin:0 0 6px;font-size:18px}
-.card .sub{font-size:12.5px;color:var(--muted);margin:0 0 18px;line-height:1.6}
-label{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:12px 0 6px}
-input{width:100%;font:inherit;font-size:15px;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--cream)}
-input:focus{outline:2px solid var(--brass);border-color:transparent}
-.btn{margin-top:18px;width:100%;font:inherit;font-weight:700;font-size:14px;padding:12px;border:0;border-radius:8px;background:var(--red);color:#fff;cursor:pointer}
-.btn[disabled]{opacity:.6;cursor:wait}
-.err{color:var(--red);font-size:12.5px;min-height:18px;margin-top:10px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:40px 0 8px}
-.stat .v{font-size:32px;font-weight:800;color:var(--wine);letter-spacing:-.5px}
-.stat .l{font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px}
-section.how{padding:40px 0 56px}
-section.how h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 20px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.step{border-top:3px solid var(--brass);padding-top:16px;color:var(--wine)}.step .ico{display:block;margin-bottom:10px}
-.step b{display:block;font-size:17px;margin-bottom:6px;color:var(--ink)}
-.step p{margin:0;font-size:14px;line-height:1.7;color:#4a3a36}
-.uses{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 32px;margin-top:8px}
-.uses div{font-size:14px;line-height:1.6;color:#4a3a36;padding-left:16px;border-left:2px solid var(--line)}
-footer{border-top:1px solid var(--line);padding:22px 0 40px;font-size:12px;color:var(--muted)}
-/* app */
-#app{display:none}
-.bar{background:var(--wine);color:#fff}
-.bar .wrap{display:flex;align-items:center;gap:14px;padding:10px 20px}
-.tabs{display:flex;gap:6px;flex:1;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.tabs::-webkit-scrollbar{display:none}
-.tab{font:inherit;font-size:14px;font-weight:700;background:none;border:0;color:#D9C7B8;padding:10px 12px;border-radius:6px;cursor:pointer;white-space:nowrap;min-height:44px}
-.tab[aria-selected=true]{background:rgba(230,184,92,.16);color:var(--brass)}
-.who{font-size:12px;color:#D9C7B8}
-.out{font:inherit;font-size:12px;background:none;border:1px solid rgba(230,184,92,.5);color:var(--brass);border-radius:22px;padding:0 14px;min-height:40px;cursor:pointer;white-space:nowrap}
-iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
-@media(max-width:860px){.hero{grid-template-columns:1fr;gap:24px;padding:24px 0 36px}.hero h1{font-size:32px}.hero p{font-size:14px}.who{display:none}.bar .wrap{flex-wrap:wrap;gap:6px 10px;padding:8px 12px}.bar .logo{font-size:12px;order:0}.bar .out{order:1;margin-left:auto}.bar .tabs{order:2;flex-basis:100%;margin:0 -12px;padding:0 12px;width:calc(100% + 24px)}.nav .acts a.pri{display:none}.stats{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.uses{grid-template-columns:1fr}.wrap{padding:0 16px}}
-</style></head><body>
-
-<div id="front">
-<header class="top"><div class="wrap">
-  <div class="nav"><div class="logo">WIN THE MENU</div><div class="acts"><a class="pri" href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access">Request access</a><button onclick="document.getElementById('em').focus()">Sign in</button></div></div>
-  <div class="hero">
-    <div>
-      <h1>Know who's on the menu. <span>Win the rest.</span></h1>
-      <p>We read the online drink menus of 122,587 bars and restaurants across the US and Canada and record every brand they list. For any drinks company or brand: how many menus carry you, who you're up against, what a pour of you sells for, which cocktails name you, where you're strong, and every bar that pours but doesn't pour you.</p>
-      <a class="cta" href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access">Request access</a>
-      <div class="glasses" aria-hidden="true"><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h36c0 14-8 24-18 24S6 24 6 10z"/><path d="M24 34v18M14 52h20"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h30l-3 42H12z"/><path d="M13 28h22" stroke-opacity=".5"/><rect x="18" y="20" width="9" height="9" rx="2" transform="rotate(12 22 24)" stroke-opacity=".7"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h24v50H12z"/><path d="M14 20h20" stroke-opacity=".5"/><path d="M30 2l6 30" stroke-opacity=".8"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 4h12v12c0 5 8 8 8 18v24H10V34c0-10 8-13 8-18z"/><path d="M14 38h20" stroke-opacity=".5"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h30c0 20-6 32-15 32S9 26 9 6z"/><path d="M24 38v16M14 54h20"/></svg></div>
-    </div>
-    <div class="card">
-      <h2>Sign in</h2>
-      <p class="sub">The scorecard is available to invited users. You stay signed in on this device until you sign out.</p>
-      <form id="lf" autocomplete="on">
-        <label for="em">Email</label><input id="em" type="email" autocomplete="username" required>
-        <label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required>
-        <button class="btn" id="go" type="submit">Sign in</button>
-        <div class="err" id="err" role="alert"></div>
-        <a class="req" href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access">No login yet? Request access</a>
-      </form>
-    </div>
-  </div>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css?v=1">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Win the Menu","url":"https://winthemenu.ai/","founder":{"@type":"Person","name":"Ed Dobbles"}}</script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap nav">
+<a href="/" class="logo">WIN THE MENU</a>
+<nav aria-label="Main"><a class="nl" href="/use-cases">Use cases</a><a class="nl" href="/platform">How it works</a><a class="nl" href="/accuracy">Accuracy</a><a class="nl" href="/how-we-collect">How we collect</a></nav>
+<div class="acts"><a class="nl" href="/demo">Request a demo</a><a class="btn btn-brass" href="/headlines">Free brand headlines</a></div>
 </div></header>
 
-<main class="wrap">
-  <div class="stats">
-    <div class="stat"><div class="v">122,587</div><div class="l">Bars and restaurants with an alcohol menu online, September 2026</div></div>
-    <div class="stat"><div class="v">106,468</div><div class="l">Of those, menus that name at least one brand</div></div>
-    <div class="stat"><div class="v">1,515</div><div class="l">Brands tracked, each on 100 or more menus</div></div>
-    <div class="stat"><div class="v">200</div><div class="l">Drinks companies you can look up</div></div>
-  </div>
-  <section class="how">
-    <h3>How it works</h3>
-    <div class="steps">
-      <div class="step"><svg class="ico" viewBox="0 0 48 60" width="34" height="42" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 4h12v12c0 5 8 8 8 18v24H10V34c0-10 8-13 8-18z"/><path d="M14 38h20" stroke-opacity=".5"/></svg><b>Collect</b><p>Every month, the drink menus bars and restaurants publish on their own sites.</p></div>
-      <div class="step"><svg class="ico" viewBox="0 0 48 60" width="34" height="42" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h30l-3 42H12z"/><path d="M13 28h22" stroke-opacity=".5"/><rect x="18" y="20" width="9" height="9" rx="2" transform="rotate(12 22 24)" stroke-opacity=".7"/></svg><b>Read</b><p>Every listing matched to a brand and its current owner, with its menu price and the cocktail it sits in; spellings combined, doubtful ones left out.</p></div>
-      <div class="step"><svg class="ico" viewBox="0 0 48 60" width="34" height="42" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h36c0 14-8 24-18 24S6 24 6 10z"/><path d="M24 34v18M14 52h20"/></svg><b>Check</b><p>Independent re-reads of thousands of menus, plus menus read by people, brand by brand.</p></div>
-    </div>
-  </section>
-  <section class="how" style="padding-top:0">
-    <h3>What you see</h3>
-    <div class="uses">
-      <div><b>Share of menus.</b> How many outlets list your brands, and what share of all alcohol-serving outlets that is.</div>
-      <div><b>Competitors.</b> Your rank against other companies, and each brand against its category.</div>
-      <div><b>By state.</b> Where your brands are strong and where they are thin.</div>
-      <div><b>Menus without you.</b> Outlets that serve alcohol but carry none of your brands: the prospect list.</div>
-    </div>
-  </section>
+<main id="main">
+<section class="dark"><div class="wrap row" style="padding-top:88px;padding-bottom:96px;align-items:center;gap:56px">
+<div style="flex:1 1 560px;min-width:0">
+<div class="eyebrow" style="margin-bottom:20px">On-premise intelligence for drinks companies</div>
+<h1 class="h1" style="margin-bottom:24px">Find the menus you're missing. Then win them.</h1>
+<p class="lead" style="margin-bottom:36px">See which bars and restaurants list your brands, which list your competitors instead, and which accounts your team should go after next — across 122,587 US and Canadian drink menus, refreshed every month.</p>
+<div style="display:flex;flex-wrap:wrap;gap:14px"><a class="btn btn-brass" href="/headlines">See your brand's menu count — free</a><a class="btn btn-ghost" href="/demo">Book a portfolio walkthrough</a></div>
+</div>
+<div style="flex:1 1 380px;min-width:0">
+<div style="background:var(--wine2);border:1px solid #5B2A33;border-radius:12px;padding:26px">
+<div class="eyebrow" style="font-size:12px;margin-bottom:18px">Answers your team gets</div>
+<ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px;font-size:17px;color:#F1E6D6">
+<li>Which accounts list our category but not our brand?</li>
+<li>Where did a competitor win the cocktail list?</li>
+<li>Are we gaining or losing menus, state by state?</li>
+<li>Are the cocktails we support actually live?</li>
+</ul>
+</div>
+</div>
+</div></section>
+
+<section><div class="wrap pad">
+<div class="eyebrow" style="margin-bottom:16px">The on-premise problem</div>
+<h2 class="h2" style="margin-bottom:16px;max-width:860px">Brands are built on-premise. It's also the channel you can see least.</h2>
+<p class="muted" style="margin:0 0 44px;max-width:720px;font-size:18px">Depletions stop at the distributor. Field audits cover the doors your team can visit. Between them, most of what happens on the menu goes unseen until it shows up in the numbers.</p>
+<div class="grid" style="gap:24px">
+<div class="card"><h3 class="serif" style="font-size:23px;margin-bottom:10px">"Our distributor says we're in. Are we on the menu?"</h3><p class="muted" style="margin:0">Being stocked isn't being listed. A brand that's behind the bar but not on the menu is easy for a guest to pass over.</p></div>
+<div class="card"><h3 class="serif" style="font-size:23px;margin-bottom:10px">"Our reps can't be everywhere."</h3><p class="muted" style="margin:0">Without a target list, reps revisit accounts they already have. The bars that pour your category but not your brand stay unvisited.</p></div>
+<div class="card"><h3 class="serif" style="font-size:23px;margin-bottom:10px">"We hear about competitor wins too late."</h3><p class="muted" style="margin:0">A rival takes the signature cocktail in a key market. You find out a quarter later, when the share report moves.</p></div>
+</div>
+</div></section>
+
+<section class="alt"><div class="wrap pad">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:36px"><div><div class="eyebrow" style="margin-bottom:16px">What you do with it</div><h2 class="h2">Turn menus into your next move</h2></div><a href="/use-cases" style="font-size:16px">All use cases →</a></div>
+<div class="grid">
+<a href="/use-cases#sales" class="card" style="text-decoration:none;color:var(--ink)"><div class="eyebrow" style="font-size:12px;margin-bottom:10px">Sales &amp; distribution</div><div class="serif" style="font-size:22px;margin-bottom:8px">Send reps to the doors worth winning</div><p class="muted" style="margin:0;font-size:16px">Accounts that list your category but none of your brands — and what they pour instead.</p></a>
+<a href="/use-cases#brand" class="card" style="text-decoration:none;color:var(--ink)"><div class="eyebrow" style="font-size:12px;margin-bottom:10px">Brand teams</div><div class="serif" style="font-size:22px;margin-bottom:8px">Know where you're strong and thin</div><p class="muted" style="margin:0;font-size:16px">Menus carrying each brand, your share against the category, by state.</p></a>
+<a href="/use-cases#competitive" class="card" style="text-decoration:none;color:var(--ink)"><div class="eyebrow" style="font-size:12px;margin-bottom:10px">Strategy &amp; insights</div><div class="serif" style="font-size:22px;margin-bottom:8px">Catch competitor wins early</div><p class="muted" style="margin:0;font-size:16px">Where a rival is on the menu and you aren't, outlet by outlet, month by month.</p></a>
+<a href="/use-cases#trade" class="card" style="text-decoration:none;color:var(--ink)"><div class="eyebrow" style="font-size:12px;margin-bottom:10px">Trade marketing</div><div class="serif" style="font-size:22px;margin-bottom:8px">Confirm your cocktails are live</div><p class="muted" style="margin:0;font-size:16px">Which menus name your brand in a cocktail, with the line and the date.</p></a>
+</div>
+</div></section>
+
+<section style="border-bottom:1px solid var(--line)"><div class="wrap" style="padding-top:64px;padding-bottom:56px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:28px"><span class="eyebrow">The coverage · September 2026, certified</span><a href="/platform#counting" style="font-size:15px">Definitions for every number</a></div>
+<div class="stats">
+<div class="stat"><div class="v">122,587</div><div class="l">US and Canadian bars and restaurants with a drink menu online</div></div>
+<div class="stat"><div class="v">106,468</div><div class="l">Of those, menus that name at least one brand</div></div>
+<div class="stat"><div class="v">1,515</div><div class="l">Brands tracked, each on 100 or more menus</div></div>
+<div class="stat"><div class="v">22</div><div class="l">Brands on the typical (median) branded menu</div></div>
+</div>
+<p class="muted" style="margin:28px 0 0;font-size:15px">Menu presence, not sales volume or market share. Outlets with no drink menu online aren't counted.</p>
+</div></section>
+
+<section><div class="wrap pad">
+<div class="eyebrow" style="margin-bottom:16px">Why you can take it into a meeting</div>
+<h2 class="h2" style="margin-bottom:48px">Every listing has a receipt.</h2>
+<div class="grid" style="gap:36px 40px">
+<div><h3 style="font-size:19px;margin-bottom:8px">Click through to the menu</h3><p class="muted" style="margin:0">Each brand links to the menu line, page and capture date it came from. A few chain locations with no page of their own carry their chain's core list and are marked as inferred.</p></div>
+<div><h3 style="font-size:19px;margin-bottom:8px">Accuracy, published</h3><p class="muted" style="margin:0">Capture of major brands, checked against a separate AI reader and against people reading 514 menus by hand. <a href="/accuracy">See the results</a>.</p></div>
+<div><h3 style="font-size:19px;margin-bottom:8px">Certified, month by month</h3><p class="muted" style="margin:0">A month goes live only after it passes certification. When we correct a number, the old one is retired, not kept.</p></div>
+<div><h3 style="font-size:19px;margin-bottom:8px">Alongside your audits, not instead</h3><p class="muted" style="margin:0">Menu presence, not volume. Back-bar pours that aren't listed won't show. <a href="/platform#compare">How it compares</a>.</p></div>
+</div>
+</div></section>
+
+<section><div class="wrap" style="padding-bottom:96px">
+<div class="dark row" style="border-radius:14px;padding:48px;gap:40px;align-items:center">
+<div style="flex:1 1 420px;min-width:0"><div class="eyebrow" style="margin-bottom:14px">Free · no call required</div><h2 class="h2" style="margin-bottom:14px">How is your brand doing on the menu?</h2><p style="margin:0;color:#E9DCCB">Menus carrying the brand, category rank, top three states, closest competitor and cocktail call-outs — for one brand, from the current certified month.</p></div>
+<form action="/headlines" method="get" class="form" style="flex:1 1 380px;min-width:0;gap:12px">
+<div class="field"><label for="hb">Brand</label><input id="hb" name="brand" type="text" required></div>
+<div class="field"><label for="he">Work email</label><input id="he" name="email" type="email" autocomplete="email" required></div>
+<button class="btn btn-brass" type="submit" style="margin-top:6px">Get my headlines</button>
+</form>
+</div>
+</div></section>
+
+<section style="border-top:1px solid var(--line)"><div class="wrap row pad" style="align-items:flex-start">
+<div style="flex:1 1 340px;min-width:0"><div class="eyebrow" style="margin-bottom:16px">Who's behind it</div><h2 class="h2">Built by people who've sat where you sit.</h2></div>
+<div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px">
+<div class="card">
+<div style="font-weight:600;font-size:19px">Ed Dobbles, DBA <span style="font-weight:400;color:var(--link);font-size:16px">· Founder</span></div>
+<p class="muted" style="margin:8px 0 14px">Former VP Advanced Analytics, Diageo North America. 25+ years leading analytics at Fortune 500 companies. Doctorate on how sales teams adopt analytics.</p>
+<p class="serif" style="margin:0;font-size:19px;font-weight:500;color:var(--wine);line-height:1.4">“Brands are built in the on-premise channel, but it is the toughest channel to track. I bought on-premise data for six years at Diageo. I never had a number I could click through to the menu. So I built one.”</p>
+</div>
+<div class="card"><div style="font-weight:600;font-size:19px">John Mouyal <span style="font-weight:400;color:var(--link);font-size:16px">· Partner</span></div></div>
+</div>
+</div></section>
+
+<section class="alt"><div class="wrap row pad">
+<div style="flex:1 1 320px;min-width:0"><div class="eyebrow" style="margin-bottom:16px">Questions buyers ask</div><h2 class="h2">Straight answers</h2></div>
+<div style="flex:1 1 600px;min-width:0">
+<details open><summary>Is this sales data?</summary><p>No. It's whether a brand is listed on an outlet's published drink menu. Pair it with depletions for volume.</p></details>
+<details><summary>What about outlets with no menu online?</summary><p>They aren't in our count. We say how many outlets we cover and how we define them — see <a href="/platform#counting">How we count</a>.</p></details>
+<details><summary>How accurate is it?</summary><p>We publish capture rates by manufacturer, checked by a separate AI reader and by people reading 514 menus by hand. <a href="/accuracy">See the accuracy page</a>.</p></details>
+<details><summary>Where does the data come from?</summary><p>Only drink menus that venues publish on the public web. No logins, no paywalls, no personal data. <a href="/how-we-collect">How we collect</a>.</p></details>
+<details><summary>Can I see coverage for my states and channels?</summary><p>Yes — in the walkthrough, cut for your markets. We'll publish a split here once it's certified.</p></details>
+<details><summary>What does it cost?</summary><p>Pilots are scoped to your portfolio and markets. We share pricing on the walkthrough call.</p></details>
+</div>
+</div></section>
 </main>
-<footer><div class="wrap">Win the Menu · Menu presence, not sales volume or market share · Data: September 2026 · <a href="/accuracy" style="color:var(--red)">How accurate is our data</a> · <a href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access" style="color:var(--red)">Contact us</a></div></footer>
-</div>
 
-<div id="app">
-  <div class="bar"><div class="wrap">
-    <div class="logo">WIN THE MENU</div>
-    <div class="tabs" role="tablist">
-      <button class="tab" role="tab" data-p="scorecard" aria-selected="true">Scorecard</button>
-      <button class="tab" role="tab" data-p="gap" aria-selected="false">Competitive Gaps</button>
-      <button class="tab" role="tab" data-p="qa" aria-selected="false" id="qatab" hidden>QA by Manufacturer</button>
-    </div>
-    <span class="who" id="who"></span><button class="out" id="out">Sign out</button>
-  </div></div>
-  <iframe id="frame" title="Win the Menu scorecard"></iframe>
-</div>
-
-<script>
-const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "XcHDxNDaPAGSUzTY", "c": "fhuHxlHYV94fVis28JKbQon7B4tAvGoE8WPj3gFbsP1vnlBJTUDSUrnRFXYmOoewqi2N55o04vc2vlEhyYphZgOyp6yhDuiGfCzF8Ym+Wq9KsGr1rIX6z9/j2qq95MydYEKGYzZpF0r0ziVKpehcvuadMj4bAbjDlBo="}, {"i": "pCKSOBfT6P/EP30J", "c": "RIifWChVCc/QTiam4RfLyxGrpewZSsgH73k3fBbFSIN1YZPVZBcGvZUwj73Zftm9LDAdTB+p8fZgO/qesjBQ/TfQ0FyAG//66a6F2jk+jl3fFdOgcn7UMdRJyMs8viTqLwTMskmeZ0tkJe22PtUi1sbSMzE9PqlfLpM="}], "v": "f7ff677d", "gv": "59c1ea4d9c"};
-const PAGES={scorecard:['scorecard.enc','k'],gap:['gap.enc','k'],qa:['qa.enc','q']};
-window.WTM={get internal(){return !!(SESS&&SESS.q);},bin:async p=>{const r=await fetch(p+'?v='+VAULT.gv,{cache:'force-cache'}); const u=new Uint8Array(await r.arrayBuffer());
-  const k=await crypto.subtle.importKey('raw',b64(SESS.k),'AES-GCM',false,['decrypt']); return crypto.subtle.decrypt({name:'AES-GCM',iv:u.slice(0,12)},k,u.slice(12));}};
-const TITLES={scorecard:'Win the Menu scorecard',gap:'Win the Menu competitive gaps',qa:'Win the Menu manufacturer QA'};
-const te=new TextEncoder(),td=new TextDecoder();
-const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
-async function unlock(email,pw){
-  const base=await crypto.subtle.importKey('raw',te.encode(email.trim().toLowerCase()+'\n'+pw),'PBKDF2',false,['deriveKey']);
-  const kek=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(VAULT.s),iterations:VAULT.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
-  for(const u of VAULT.u){try{return JSON.parse(td.decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(u.i)},kek,b64(u.c))));}catch(e){}}
-  return null;
-}
-let SESS=null, urls={};
-async function page(name){
-  if(urls[name]) return urls[name];
-  const [file,slot]=PAGES[name]; if(!SESS[slot]) throw new Error('no access');
-  const r=await fetch(file+'?v='+VAULT.v,{cache:'no-store'}); const j=await r.json();
-  const k=await crypto.subtle.importKey('raw',b64(SESS[slot]),'AES-GCM',false,['decrypt']);
-  const html=td.decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(j.i)},k,b64(j.c)));
-  urls[name]=URL.createObjectURL(new Blob([html],{type:'text/html'})); return urls[name];
-}
-function sizeFrame(){document.documentElement.style.setProperty('--barh',document.querySelector('.bar').offsetHeight+'px');}
-addEventListener('resize',sizeFrame);
-function forget(){try{localStorage.removeItem('wtm');sessionStorage.removeItem('wtm');}catch(x){}}
-async function show(name){
-  document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t.dataset.p===name));
-  const fr=document.getElementById('frame'); fr.title=TITLES[name];
-  try{fr.src=await page(name);}catch(e){forget(); location.reload();}
-}
-function enter(){
-  document.getElementById('front').style.display='none';document.getElementById('app').style.display='block';
-  document.getElementById('who').textContent=SESS.e; document.getElementById('qatab').hidden=!SESS.q;
-  sizeFrame(); show('scorecard');
-}
-document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>show(t.dataset.p));
-document.querySelector('.tabs').addEventListener('keydown',e=>{
-  if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft') return;
-  const ts=[...document.querySelectorAll('.tab:not([hidden])')]; let i=ts.indexOf(document.activeElement); if(i<0) return;
-  i=(i+(e.key==='ArrowRight'?1:-1)+ts.length)%ts.length; ts[i].focus(); ts[i].click();
-});
-document.getElementById('lf').onsubmit=async e=>{
-  e.preventDefault(); const go=document.getElementById('go'), err=document.getElementById('err');
-  const em=document.getElementById('em').value, pw=document.getElementById('pw').value;
-  go.disabled=true; go.textContent='Signing in…'; err.textContent='';
-  const p=await unlock(em,pw); go.disabled=false; go.textContent='Sign in';
-  if(!p){err.textContent='Email or password not recognised.';return;}
-  SESS={k:p.k,q:p.q||null,e:em.trim().toLowerCase(),v:2};
-  try{localStorage.setItem('wtm',JSON.stringify(SESS));}catch(x){}
-  enter();
-};
-document.getElementById('out').onclick=()=>{forget(); location.reload();};
-try{const s=JSON.parse(localStorage.getItem('wtm')||'null'); if(s&&s.v===2){SESS=s; enter();} else if(s){forget();}}catch(x){}
-</script>
+<footer class="ft"><div class="wrap ft-in">
+<div style="flex:1 1 320px"><div class="logo" style="font-size:20px;display:block;margin-bottom:12px">WIN THE MENU</div><p style="margin:0;max-width:440px">Menu presence, not sales volume or market share. Data: September 2026, US and Canada bars and restaurants with a drink menu online. Brand names belong to their owners; no affiliation or endorsement implied.</p></div>
+<nav aria-label="Footer"><a href="/use-cases">Use cases</a><a href="/platform">How it works</a><a href="/accuracy">Accuracy</a><a href="/how-we-collect">How we collect</a><a href="/demo">Contact</a><a href="/how-we-collect#privacy">Privacy</a><a href="/signin" style="color:#BFA996">Client sign-in</a></nav>
+</div></footer>
 </body></html>
