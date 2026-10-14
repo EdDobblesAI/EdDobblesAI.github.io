@@ -124,6 +124,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" data-p="scorecard" aria-selected="true">Scorecard</button>
       <button class="tab" role="tab" data-p="gap" aria-selected="false">Competitive Gaps</button>
+      <button class="tab" role="tab" data-p="change" aria-selected="false">What Changed</button>
       <button class="tab" role="tab" data-p="qa" aria-selected="false" id="qatab" hidden>Accuracy by Manufacturer</button>
     </div>
     <span class="who" id="who"></span><button class="out" id="out">Sign out</button>
@@ -133,10 +134,10 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
 
 <script>
 const VAULT={"iter": 310000, "s": "yYcYZqB4wFBQR/B2gs+i4Q==", "u": [{"i": "XcHDxNDaPAGSUzTY", "c": "fhuHxlHYV94fVis28JKbQon7B4tAvGoE8WPj3gFbsP1vnlBJTUDSUrnRFXYmOoewqi2N55o04vc2vlEhyYphZgOyp6yhDuiGfCzF8Ym+Wq9KsGr1rIX6z9/j2qq95MydYEKGYzZpF0r0ziVKpehcvuadMj4bAbjDlBo="}, {"i": "pCKSOBfT6P/EP30J", "c": "RIifWChVCc/QTiam4RfLyxGrpewZSsgH73k3fBbFSIN1YZPVZBcGvZUwj73Zftm9LDAdTB+p8fZgO/qesjBQ/TfQ0FyAG//66a6F2jk+jl3fFdOgcn7UMdRJyMs8viTqLwTMskmeZ0tkJe22PtUi1sbSMzE9PqlfLpM="}], "v": "f7ff677d", "gv": "59c1ea4d9c"};
-const PAGES={scorecard:['scorecard.enc','k'],gap:['gap.enc','k'],qa:['qa.enc','k']}; /* QA page is client material: every signed-in account holds k */
+const PAGES={scorecard:['scorecard.enc','k'],gap:['gap.enc','k'],change:['change.enc','k'],qa:['qa.enc','k']}; /* QA page is client material: every signed-in account holds k */
 window.WTM={get internal(){return !!(SESS&&SESS.q);},notes:async()=>{const r=await fetch('notes.enc?v='+Date.now(),{cache:'no-store'});const j=await r.json();const k=await crypto.subtle.importKey('raw',b64(SESS.q),'AES-GCM',false,['decrypt']);return JSON.parse(td.decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(j.i)},k,b64(j.c))));},bin:async p=>{const r=await fetch(p+'?v='+VAULT.gv,{cache:'force-cache'}); const u=new Uint8Array(await r.arrayBuffer());
   const k=await crypto.subtle.importKey('raw',b64(SESS.k),'AES-GCM',false,['decrypt']); return crypto.subtle.decrypt({name:'AES-GCM',iv:u.slice(0,12)},k,u.slice(12));}};
-const TITLES={scorecard:'Win the Menu scorecard',gap:'Win the Menu competitive gaps',qa:'Win the Menu accuracy by manufacturer'};
+const TITLES={scorecard:'Win the Menu scorecard',gap:'Win the Menu competitive gaps',change:'Win the Menu what changed',qa:'Win the Menu accuracy by manufacturer'};
 const te=new TextEncoder(),td=new TextDecoder();
 const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
 async function unlock(email,pw){
@@ -168,6 +169,7 @@ function enter(){
   sizeFrame(); show('scorecard');
 }
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>show(t.dataset.p));
+addEventListener('message',e=>{if(e.data&&e.data.wtm==='show'&&PAGES[e.data.p]&&SESS)show(e.data.p);});
 document.querySelector('.tabs').addEventListener('keydown',e=>{
   if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft') return;
   const ts=[...document.querySelectorAll('.tab:not([hidden])')]; let i=ts.indexOf(document.activeElement); if(i<0) return;
