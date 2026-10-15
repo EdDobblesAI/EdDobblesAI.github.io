@@ -33,24 +33,24 @@
 <p class="muted" style="border-top:1px solid var(--line);padding-top:24px;margin:0">Prefer email? <a href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu">ed@dobbles.ai</a></p>
 </div>
 <div style="flex:1 1 480px;min-width:0">
-<form class="form card" data-mail="Win the Menu: walkthrough request" data-done="demo-done">
+<form class="form card" data-lead="demo" data-done="demo-done">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px">
 <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" type="text" required></div>
 <div class="field"><label for="c-title">Title</label><input id="c-title" name="title" type="text"></div>
 </div>
 <div class="field"><label for="c-co">Company</label><input id="c-co" name="company" type="text" required></div>
 <div class="field"><label for="c-email">Work email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
-<div class="field"><label for="c-type">Your company is a</label><select id="c-type" name="type"><option>Spirits supplier</option><option>Wine supplier</option><option>Beer, cider or RTD supplier</option><option>Distributor</option><option>Agency or consultancy</option><option>Other</option></select></div>
+<div class="field"><label for="c-type">Your company is a</label><select id="c-type" name="company_type"><option>Spirits supplier</option><option>Wine supplier</option><option>Beer, cider or RTD supplier</option><option>Distributor</option><option>Agency or consultancy</option><option>Other</option></select></div>
 <div class="field"><label for="c-brands">Brands to look at first</label><input id="c-brands" name="brands" type="text"></div>
 <div class="field"><label for="c-q">What would you want answered?</label><textarea id="c-q" name="question" rows="4" style="min-height:120px"></textarea></div>
 <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
 <button type="submit" class="btn btn-wine">Request my portfolio walkthrough</button>
-<p class="note">Sending opens an email to us from your own mail app. We reply within one business day. <a href="/how-we-collect#privacy">Privacy</a>.</p>
+<p class="note">We reply within one business day. <a href="/how-we-collect#privacy">Privacy</a>.</p>
 </form>
 <div id="demo-done" class="card done" tabindex="-1">
-<div class="eyebrow" style="color:#1F6B4A;margin-bottom:12px">Almost done</div>
-<h2 class="serif" style="font-size:30px;margin-bottom:12px">Hit send in your email app.</h2>
-<p class="muted" style="margin:0 0 24px">We'll be in touch within one business day. In the meantime, see how we check our data.</p>
+<div class="eyebrow" style="color:#1F6B4A;margin-bottom:12px">Request received</div>
+<h2 class="serif" style="font-size:30px;margin-bottom:12px">Got it. We'll reply within one business day.</h2>
+<p class="muted" style="margin:0 0 24px">In the meantime, see how we check our data.</p>
 <a class="btn btn-wine" href="/accuracy">How accurate is our data</a>
 </div>
 </div>
@@ -61,5 +61,5 @@
 <span>Win the Menu · Menu presence, not sales volume or market share · Data: October 2026</span>
 <nav aria-label="Footer"><a href="/">Home</a><a href="/use-cases">Use cases</a><a href="/platform">How it works</a><a href="/accuracy">Accuracy</a><a href="/how-we-collect">How we collect</a><a href="/demo">Contact</a><a href="/how-we-collect#privacy">Privacy</a><a href="/signin" style="color:#BFA996">Client sign-in</a></nav>
 </div></footer>
-<script src="/site.js?v=1"></script>
+<script src="/site.js?v=2"></script>
 </body></html>

@@ -68,12 +68,12 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
 
 <div id="front">
 <header class="top"><div class="wrap">
-  <div class="nav"><div class="logo">WIN THE MENU</div><div class="acts"><a class="pri" href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access">Request access</a><button onclick="document.getElementById('em').focus()">Sign in</button></div></div>
+  <div class="nav"><div class="logo">WIN THE MENU</div><div class="acts"><a class="pri" href="#access">Request access</a><button onclick="document.getElementById('em').focus()">Sign in</button></div></div>
   <div class="hero">
     <div>
       <h1>Know who's on the menu. <span>Win the rest.</span></h1>
       <p>We cover 127,211 bars and restaurants with a drink menu online across the US and Canada and record every brand their captured menus list. For any drinks company or brand: how many menus list you, who you're up against, which cocktails name you, where you're strong, and the bars whose captured menus don't list your brands.</p>
-      <a class="cta" href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access">Request access</a>
+      <a class="cta" href="#access">Request access</a>
       <div class="glasses" aria-hidden="true"><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h36c0 14-8 24-18 24S6 24 6 10z"/><path d="M24 34v18M14 52h20"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h30l-3 42H12z"/><path d="M13 28h22" stroke-opacity=".5"/><rect x="18" y="20" width="9" height="9" rx="2" transform="rotate(12 22 24)" stroke-opacity=".7"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h24v50H12z"/><path d="M14 20h20" stroke-opacity=".5"/><path d="M30 2l6 30" stroke-opacity=".8"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 4h12v12c0 5 8 8 8 18v24H10V34c0-10 8-13 8-18z"/><path d="M14 38h20" stroke-opacity=".5"/></svg><svg class="ico" viewBox="0 0 48 60" width="48" height="60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h30c0 20-6 32-15 32S9 26 9 6z"/><path d="M24 38v16M14 54h20"/></svg></div>
     </div>
     <div class="card">
@@ -84,7 +84,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
         <label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required>
         <button class="btn" id="go" type="submit">Sign in</button>
         <div class="err" id="err" role="alert"></div>
-        <a class="req" href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access">No login yet? Request access</a>
+        <a class="req" href="#access">No login yet? Request access</a>
       </form>
     </div>
   </div>
@@ -113,6 +113,18 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
       <div><b>Competitors.</b> Your rank against other companies, and each brand against its category.</div>
       <div><b>By state.</b> Where your brands are strong and where they are thin.</div>
       <div><b>Menus without you.</b> Outlets whose menus don't list your brands: the prospect list.</div>
+    </div>
+  </section>
+  <section class="how" id="access" style="padding-top:0">
+    <h3>Request access</h3>
+    <div class="card" style="max-width:460px;box-shadow:none;border:1px solid var(--line)">
+      <form data-lead="access" data-done="acc-done">
+        <label for="acc-em">Work email</label><input id="acc-em" name="email" type="email" autocomplete="email" required>
+        <label for="acc-co">Company</label><input id="acc-co" name="company" type="text" autocomplete="organization" required>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+        <button class="btn" type="submit">Request access</button>
+      </form>
+      <div id="acc-done" tabindex="-1" style="display:none"><h2>Got it. We'll reply within one business day.</h2><p class="sub" style="margin:0">We'll set up your login and send it to your work email.</p></div>
     </div>
   </section>
 </main>
@@ -190,4 +202,5 @@ document.getElementById('lf').onsubmit=async e=>{
 document.getElementById('out').onclick=()=>{forget(); location.reload();};
 try{const s=JSON.parse(localStorage.getItem('wtm')||'null'); if(s&&s.v===2){SESS=s; enter();} else if(s){forget();}}catch(x){}
 </script>
+<script src="/site.js?v=2"></script>
 </body></html>
