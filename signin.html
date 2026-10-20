@@ -131,6 +131,8 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
 <footer><div class="wrap">Win the Menu · Menu presence, not sales volume or market share · Data: October 2026 · <a href="/accuracy" style="color:var(--red)">How accurate is our data</a> · <a href="mailto:ed@dobbles.ai?subject=Win%20the%20Menu%20access" style="color:var(--red)">Contact us</a></div></footer>
 </div>
 
+<style>@media(min-width:861px){.bar .wrap{flex-wrap:wrap;row-gap:0}.bar .tabs{flex:1 1 0;min-width:0;flex-wrap:wrap;overflow:visible}.bar .meta2{order:3;flex-basis:100%;display:flex;justify-content:flex-end;gap:14px;min-width:0;padding:0 0 6px}.bar .meta2 .who{min-width:0;max-width:48%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}@media(max-width:860px){.bar .meta2{display:none}}
+</style>
 <div id="app">
   <div class="bar"><div class="wrap">
     <div class="logo">WIN THE MENU</div>
@@ -141,7 +143,7 @@ iframe{display:block;width:100%;border:0;height:calc(100vh - var(--barh,58px))}
       <button class="tab" role="tab" data-p="outlets" aria-selected="false">Outlet Lookup</button>
       <button class="tab" role="tab" data-p="qa" aria-selected="false" id="qatab" hidden>Accuracy by Manufacturer</button>
     </div>
-    <span class="who" id="dstamp">Data: October 2026</span><span class="who" id="who"></span><button class="out" id="out">Sign out</button>
+    <button class="out" id="out">Sign out</button><div class="meta2"><span class="who" id="dstamp">Data: October 2026</span><span class="who" id="who"></span></div>
   </div></div>
   <iframe id="frame" title="Win the Menu scorecard"></iframe>
 </div>
